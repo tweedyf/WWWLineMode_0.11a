@@ -1,0 +1,41 @@
+<TITLE>Installation_VMS -- /LineMode</TITLE>
+<NEXTID 2>
+<H1>Installation under VMS</H1>To install under VMS, get the save set, WWW.BCK, and unwrap it with
+the command<P>
+$ BACKUP WWW.BCK/SAV [...]<P>
+(or else copy the files from a system you know has them). To set up
+the commands, put the command
+<XMP>			$ @[...]SETUP
+
+</XMP>into your LOGIN.COM, or the system SYLOGIN.COM.  This command file
+assumes you have left all the distributed files  in the same directory
+as itself.
+<H2>Home page</H2>Under VMS,  the home page may be defined using the logical name WWW_HOME.
+You should define this to be the full address of the document which
+you want to be displayed when www is invoked without parameters. 
+For example,
+<XMP>        $ DEFINE/SYSTEM WWW_HOME "file://myvax/sys$library/default.html"
+
+</XMP>Users may of course override the system logical name with their own.
+<H2><A NAME=1>Availability</A></H2>Versions are available for any of the following implementations of
+TCP/IP which you may have installed on your system: Digital's UCX,
+Wollongongs's WIN/TCP, or SRI's Multinet.  If you are on HEPnet, the
+versions are currently (August 91) available in directories as follows:
+<DL>
+<DT>Wollongong WIN_TCP
+<DD> none - mail me if interested.
+<DT>Multinet
+<DD> vxcrna::disk$oc1:[timbl.www.works]
+<DT>Digital's UCX
+<DD> online::disk$pellow:[pellow.layout.works]
+</DL>
+
+<H2>Note (CERN)</H2>If you are at CERN, you may pick up the default page and online documentation
+from cernvax. This machine is known (for reasons of history and name
+length limit) on decnet as PRIAM. You must therefore:
+<XMP>			$ DEFINE/SYSTEM CERNVAX PRIAM::
+
+
+</XMP>_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch/hypertext/TBL_Disclaimer.html>Tim BL</A>
+</ADDRESS>

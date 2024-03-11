@@ -1,0 +1,40 @@
+                                                       Installation -- /LineMode
+
+                                 INSTALLATION
+
+   This section describes how to install the line mode browser[1] .   First of
+   all, 
+
+       If you have a VMS machine, then see the special instuctions for VMS[2] .
+
+       If you have not already got hold of the files, see the section on
+       getting them[3] . 
+
+   The browser  has already been ported to VAX/Ultrix, VAX/VMS (read the
+   special instructions[4] ), Sun4, IBM RS6000, and apollo_m68k. If your
+   machine is not one of these,  see the section on porting[5] . If it is, then
+   find the relevant subdirectory of LineMode/Implementation. 
+COMPILING
+   This will not be necessary if there is already a copy of the executable for
+   your machine in the subdirectory. 
+
+       Check the directory definitions in the Makfile in that subdirectory, and
+       change them if necessary. If the file www does not exist, type "make". 
+       See the definition of the macros in the file
+       Implementation/CommonMakefile[6] . 
+
+INSTALLING
+
+       Become superuser (su root).  If you can't do this,  it is possible to
+       set up your own private www command using aliases[7]. 
+
+       Type "make install". Two soft links will be made from system directories
+       into the WWW directory tree. These will be to a copy of the executable
+       in a  "Works" subdirectory of your machine subdirectory. 
+
+   You must now check that the default "Home" page works, and customise it if
+   it is not what you want. The default home page refers explictly to certain
+   information which we know about. You may wish to add more. 
+
+   _________________________________________________________________ 
+                                                                      Tim BL[8] 

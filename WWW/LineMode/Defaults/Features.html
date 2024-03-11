@@ -1,0 +1,125 @@
+<TITLE>Features added to www line mode browser</TITLE>
+<NEXTID 4>
+<H1>Features added</H1>Improvements and progress made to the line mode browser are listed
+in reverse chronological order. (See also <A NAME=3 HREF=Bugs.html>bug list</A> )
+<H2>15 August 1991 version 0.11</H2>
+<UL>
+<LI>You can read the address of the current document in the HELP information.
+<LI>MVS and VM only: Line width reduced to 78 characters.
+</UL>
+<H2>July 91 version 0.10</H2>
+<UL>
+<LI>Bug fix for TOP commmand.  Now functions correctly, and data is only
+buffered and formatted when the user requires more text,  hence saving
+time.
+<LI>Can pick up on the users home environment, to display a certain intial
+page.  Set variable (on VMS, logical name) WWW_HOME to the full hypertext
+of the file or index you want to start with.
+<LI>Keyword search accepts longer strings.
+<LI>On VMS, VMS files may be accessed. The WWW address is still unix-like,
+with slashes, and is converted into VMS syntax by the browser.  VMS
+users can now write their own hypertext and keep it on VMS, though
+it will only be readable (at the moment) from VMS machines.
+</UL>
+<H2>June 91 version 0.9</H2>
+<UL>
+<LI>Bug fix in anonymous FTP. The first version with a-ftp access.
+</UL>
+<H2>24 May 91 version 0.8</H2>
+<UL>
+<LI>Page size selection now works with -p (bug in version 0.7)
+<LI>Styles have been made more compact, plain text uses all 80 columns.
+<LI>Bug fix: Missing loop end condidtion caused crash when listing some
+documents
+<LI>Files with suffixes other than .HTML are treated as plain text.
+</UL>
+<H2>21 May 91 version 0.7</H2>Parameters avaliable on the command line :-
+<DL>
+<DT>-v
+<DD> Shows trace comments, including the pathways taken to locate a
+file.
+<DT>-n
+<DD> Makes the program non interactive with the user. No prompts are
+shown, and after the node is displayed it exits the program  
+<DT>-p
+<DD> Turns off the paging. The page size can be selected by adding the
+value immediately after the 'p'.  
+<DT>-a
+<DD> Stops positions of anchors being shown in the text.
+</DL>
+These options are particulary useful when redirecting the input into
+either a file or to the printer. They can also be used in any order
+on the command line, as long as 'WWW' is the first arguement. <P>
+When the recall command is used to view what files have been visited,
+the titles of the files are used, rather than the file name. If there
+is no title then the file name is used.
+<H2>14 May 91</H2>The function HTOpen() called from HTAccess has been changed so that
+it takes two parameters instead of one. This extra one being a pointer
+to an address where the format style is stored as an integer. The
+translations of the integers to the formats can be seen in WWW.h.
+At the momment this extra parameter is not used but will be in the
+near future so that more files can be accessed.
+<H2>10 May 91</H2>WWW now reads the formatted text into a double linked buffer one screen
+full at a time and then produces it on the screen. This enables checking
+of documents so that splitting of small paragraphs or titles does
+not occur at the bottom of the screen. <P>
+An option is offered to return to the top of the present document
+being viewed.<P>
+Tim added the necessary code so that WWW can now access remote files
+using anonymous FTP.
+<H2>17 April 91</H2>Modified WWW so that it is also executable on the SUN machines., i.e.
+using ordinary C.<P>
+First version realeased on PRIAM, for testing by a few users, to gain
+feedback.<P>
+Accepts keywords with the execute command. 
+<H2>8 April 91</H2>Keywords can be entered on the command line.<P>
+The input file is copied into a buffer as soon as it is opened, so
+that the input channel is closed as soon as possible and the server
+freed. The first 23 lines of the document are read into the buffer
+and produced onto the screen. As soon as this is done, the remaining
+file is read into the buffer so the input channel is closed. 
+<H2>7 March 91</H2>Created an array called 'string_space' which is filled with blank
+spaces to be used for printing out margins etc. This method of printing
+a string was found to be faster than individually printing spaces.<P>
+A history mechanism has been included so that a list of all the documents
+viewed are stored so that the user can refer  back to them using the
+BACK, HOME and RECALL commands.<P>
+Changed code so that the browser can handle text which contains long
+words which exceed the allowed line length on their own. This is just
+done by continuing the word on the following line.<P>
+Read titles and headings into a buffer before outputting so that in
+cases where the title has a word longer than the allowed line length
+can be dealt with (for example above).This could also be useful in
+helping to solve the above problem. Maybe extend the length of headings.
+<H2>5 March 91</H2>Handles a  "LISTING" tag by treating it in the same way as an "XMP"
+tag. This is because, in the case of the line mode browser, the screen
+is limited to 80 columns and so the browser is unable to work with
+the 132 columns which the "LISTING" tag normally expects.<P>
+Handles an "ADDRESS" tag, which left justifies the text.
+<H2>27 Feb 91</H2>Lists and the help menu are not so spread out, as before.<P>
+The browser works with file numbers rather than the file pointers.<P>
+Tidied up paging, with the last line of a page repeated at top of
+next.<P>
+Deals with tags within anchors.
+<H2>11 Feb 91</H2>HTTP access to cernvm server, including FIND and NEWS tested.<P>
+Browser can be executed by 'WWW' , 'YP' (yellow pages), 'XNEWS', or
+'FIND'.<P>
+"PLAINTEXT" tag added. Prints out the node exactly as it finds it
+in the file.<P>
+Prompt only contains appropriate options, as does the help message.<P>
+Keyword search option added.
+<H2>Before Feb 91</H2>Text formatting and line wrapping completed to a reasonable standard.<P>
+Removed section of program where 'r'has to be entered in order to
+select a reference.  <P>
+When no hypertext references have been found, the browser informs
+the user, and doesn't offer the list option in the help menu.   <P>
+Produces an error message if the user tries to select a reference
+or menu, when no references have been found.<P>
+Records whether an anchor is a NAME or an HREF.    <P>
+Stop **** END **** (now [End]) appearing in the wrong places. This
+problem appears due to the lines in the html file being too long,
+so this causes an error in the 'C' run time.<P>
+Handles a glossary.<P>
+__________________________________________________________
+<ADDRESS><A NAME=1 HREF=http://info.cern.ch/hypertext/WWW/People.html#Pellow>Nicola P</A> , <A NAME=0 HREF=http://info.cern.ch/hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>
