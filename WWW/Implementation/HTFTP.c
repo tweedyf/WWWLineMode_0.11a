@@ -44,7 +44,7 @@ BUGS:	@@@  	Limit connection cache size!
 #define REPEAT_LISTEN	/* Close each listen socket and open a new one */
 
 #ifndef IPPORT_FTP
-#define IPPORT_FTP	21
+/* #define IPPORT_FTP	21 */
 #endif
 /* define POLL_PORTS		 If allocation does not work, poll ourselves.*/
 #define LISTEN_BACKLOG 2	/* Number of pending connect requests (TCP)*/
@@ -68,7 +68,7 @@ extern char *strncpy();
 
 typedef struct _connection {
     struct _connection *	next;	/* Link on list 	*/
-    u_long			addr;	/* IP address		*/
+    unsigned long			addr;	/* IP address		*/
     int				socket;	/* Socket number for communication */
 } connection;
 
@@ -255,6 +255,7 @@ PRIVATE int get_connection(arg)
 
 {
     struct hostent * phost;		/* Pointer to host -- See netdb.h */
+    #define h_addr h_addr_list[0] /* for backward compatibility */
     struct sockaddr_in soc_address;	/* Binary network address */
     struct sockaddr_in* sin = &soc_address;
     if (!arg) return -1;		/* Bad if no name sepcified	*/

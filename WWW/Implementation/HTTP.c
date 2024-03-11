@@ -42,6 +42,7 @@ int HTTP_Get(arg)
  
     char *p;			/* pointer to string */
     struct hostent  *phost;	    	/* Pointer to host - See netdb.h */
+    #define h_addr h_addr_list[0] /* for backward compatibility */
 
     struct sockaddr_in soc_address;	/* Binary network address */
     struct sockaddr_in* sin = &soc_address;
