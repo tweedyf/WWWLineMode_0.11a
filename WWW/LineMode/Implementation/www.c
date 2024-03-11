@@ -1,3 +1,4 @@
+#include <ctype.h>
 /*           HyperText Browser for Dumb Terminals                      WWW.c
 **           ====================================                      14-8-91
 **  

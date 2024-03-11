@@ -1,3 +1,4 @@
+#include <unistd.h>
 /*                                                             HTBufferFile.c
 **                                                                3-7-91
 ** A module to be called from the WWW Line Mode Browser program WWW.c, to read 
@@ -123,9 +124,9 @@ PUBLIC void HTBufferOpen(f_n)
 */
 
 #ifdef __STDC__
-PRIVATE int HTBufferRead(void)
+extern int HTBufferRead(void)
 #else
-PRIVATE int HTBufferRead()
+extern int HTBufferRead()
 #endif
 
 {

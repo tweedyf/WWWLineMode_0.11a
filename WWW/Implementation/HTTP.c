@@ -1,3 +1,4 @@
+#include <unistd.h>
 /*	HyperText Tranfer Protocol	- Client implementation		HTTP.c
 **	==========================
 */

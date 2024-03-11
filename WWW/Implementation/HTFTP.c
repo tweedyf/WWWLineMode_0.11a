@@ -1,3 +1,4 @@
+#include <unistd.h>
 /*			File Transfer Protocol (FTP) Client
 **			for a WorldWideWeb browser
 **			===================================

@@ -1,3 +1,4 @@
+#include <unistd.h>
 /*			Generic Communication Code		HTTCP.c
 **			==========================
 **
@@ -48,8 +49,8 @@ extern int errno;
 #ifndef VM
 #ifndef vms
 #ifndef NeXT
-extern char *sys_errlist[];		/* see man perror on cernvax */
-extern int sys_nerr;
+/* extern char *sys_errlist[]; */		/* see man perror on cernvax */
+/* extern int sys_nerr; */
 #endif
 #endif
 #endif
